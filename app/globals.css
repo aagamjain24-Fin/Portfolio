@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background-color: #07080b;
+  color: #f5f3ee;
+}
+
+::selection {
+  background: rgba(201, 166, 107, 0.28);
+  color: #f5f3ee;
+}
+
+:focus-visible {
+  outline: 2px solid #c9a66b;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Fine ledger-grid backdrop, kept faint so it never fights content */
+.bg-ledger-grid {
+  background-image:
+    linear-gradient(rgba(245, 243, 238, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 243, 238, 0.04) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.hairline {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(245, 243, 238, 0.14) 20%,
+    rgba(245, 243, 238, 0.14) 80%,
+    transparent
+  );
+  height: 1px;
+}
+
+/* Custom scrollbar, tuned to the palette instead of the browser default */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #07080b;
+}
+::-webkit-scrollbar-thumb {
+  background: #23262f;
+  border-radius: 999px;
+  border: 2px solid #07080b;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2f333e;
+}
