@@ -1,6 +1,7 @@
 export const profile = {
   name: "Aagam Jain",
-  title: "Finance | FP&A | Financial Analysis",
+  title: "Finance Professional | FP&A | Financial Analysis",
+  tagline: "Open to Opportunities in Finance | FP&A | Financial Analysis",
   location: "Delhi NCR, India",
   email: "aagammjain24@gmail.com",
   phone: "+91-8931891616",
@@ -13,10 +14,12 @@ export const profile = {
 };
 
 export const highlights = [
-  { value: "11 Months", label: "Professional Experience" },
+  { value: "11 Months", label: "Experience" },
   { value: "FP&A", label: "Budgeting & Forecasting" },
-  { value: "Advanced Excel", label: "Financial Models & Dashboards" },
-  { value: "Finance", label: "Analysis & Reporting" },
+  { value: "Financial Modelling", label: "Excel-based Models" },
+  { value: "Variance Analysis", label: "Budget vs Actual" },
+  { value: "MIS Reporting", label: "Management Dashboards" },
+  { value: "Advanced Excel", label: "Pivot, XLOOKUP, SUMIFS" },
 ];
 
 export const aboutAreas = [
@@ -39,6 +42,7 @@ export type ExperienceEntry = {
   location: string;
   bullets: string[];
   tags: string[];
+  relatedModels?: boolean;
 };
 
 export const experience: ExperienceEntry[] = [
@@ -67,6 +71,7 @@ export const experience: ExperienceEntry[] = [
       "Reconciliation",
       "Month-End Reporting",
     ],
+    relatedModels: true,
   },
   {
     id: "marquee-equity",
@@ -117,8 +122,8 @@ export const expertise: ExpertiseCard[] = [
     title: "Financial Modelling",
     items: [
       "Financial Models",
-      "Business Analysis",
       "Financial Forecasting",
+      "Business Analysis",
       "Investment Analysis",
     ],
   },
@@ -130,7 +135,6 @@ export const expertise: ExpertiseCard[] = [
       "KPI Tracking",
       "Performance Dashboards",
       "Management Reporting",
-      "Financial Performance Analysis",
     ],
   },
   {
@@ -156,6 +160,13 @@ export const excelSkills = [
 ];
 
 export const otherTools = ["Power BI", "Tableau", "Tally ERP", "Microsoft Office", "SQL — Basic"];
+
+export const aiTools = [
+  { name: "ChatGPT", use: "Research & drafting support" },
+  { name: "Claude", use: "Data interpretation & documentation" },
+  { name: "Google Gemini", use: "Research & workflow support" },
+  { name: "Microsoft Copilot", use: "Productivity in Office workflows" },
+];
 
 export type Project = {
   id: string;
@@ -206,6 +217,139 @@ export const projects: Project[] = [
       "During my Investment Banking Fellowship at Marquee Equity, performed financial and market analysis of global startups, evaluating business models, financial metrics and growth potential.",
     skills: ["Investment Analysis", "Market Research", "Financial Analysis", "Business Models"],
   },
+  {
+    id: "cfi-fpa-challenge",
+    number: "06",
+    title: "CFI FP&A Challenge",
+    description:
+      "Completed CFI's 3-week Financial Planning & Analysis Challenge, applying core FP&A workflows in Excel.",
+    skills: ["Excel", "FP&A", "Financial Analysis", "Financial Modelling"],
+  },
+];
+
+export type ModelCategory =
+  | "FP&A"
+  | "FINANCIAL MODELLING"
+  | "BUDGETING"
+  | "FINANCIAL ANALYSIS"
+  | "INVESTMENT ANALYSIS";
+
+export type ModelMetric = { label: string; value: string };
+
+export type FinancialModel = {
+  id: string;
+  number: string;
+  name: string;
+  subtitle: string;
+  description: string;
+  categories: ModelCategory[];
+  skills: string[];
+  sheets: string[];
+  status: "available" | "credential" | "coming-soon";
+  statusNote: string;
+  filePath?: string;
+  metrics?: ModelMetric[];
+  chart?: { month: string; budget: number; actual: number }[];
+};
+
+// Monthly Budget vs Actual figures (₹ Lacs), taken directly from the
+// "Dashboard" tab of the actual workbook.
+export const budgetVsActualChart = [
+  { month: "Jan", budget: 451.28, actual: 238.0 },
+  { month: "Feb", budget: 216.7, actual: 117.97 },
+  { month: "Mar", budget: 308.56, actual: 238.84 },
+  { month: "Apr", budget: 232.14, actual: 153.94 },
+  { month: "May", budget: 202.67, actual: 253.21 },
+  { month: "Jun", budget: 171.54, actual: 199.44 },
+  { month: "Jul", budget: 301.57, actual: 189.59 },
+  { month: "Aug", budget: 366.73, actual: 360.64 },
+  { month: "Sep", budget: 340.19, actual: 377.79 },
+  { month: "Oct", budget: 293.77, actual: 477.61 },
+  { month: "Nov", budget: 384.75, actual: 640.52 },
+  { month: "Dec", budget: 334.38, actual: 202.82 },
+];
+
+export const financialModels: FinancialModel[] = [
+  {
+    id: "budget-vs-actual",
+    number: "01",
+    name: "Budget vs Actual Financial Model",
+    subtitle: "FP&A | Budgeting | Variance Analysis",
+    description:
+      "An Excel-based Budget vs Actual model built across three business segments — Export, B2B and B2C — tracking monthly and year-to-date performance against budget, with categorywise variance, an executive dashboard, a YTM dashboard, and a written analysis of the results.",
+    categories: ["FP&A", "BUDGETING", "FINANCIAL ANALYSIS"],
+    skills: ["Excel", "Variance Analysis", "Budgeting", "Dashboard Design", "SUMIFS", "Pivot Tables"],
+    sheets: [
+      "Overall_MONTHLY_SALES",
+      "Categorywise_Variance",
+      "Dashboard",
+      "YTM_Dashboard",
+      "Analysis",
+      "QTY_SOLD_BudVSAct_OVERALL",
+      "QTY_SOLD_BudVSAct_Marketwise",
+    ],
+    status: "available",
+    statusNote: "Available",
+    filePath: "/models/Budget_vs_Actual_Model_AagamJain.xlsx",
+    metrics: [
+      { label: "Annual achievement", value: "96%" },
+      { label: "Total budget (FY)", value: "₹3,604.3L" },
+      { label: "Total actual (FY)", value: "₹3,450.4L" },
+      { label: "Strongest segment", value: "B2C" },
+    ],
+    chart: budgetVsActualChart,
+  },
+  {
+    id: "cfi-fpa-challenge",
+    number: "02",
+    name: "CFI — FP&A Challenge",
+    subtitle: "3-Week Financial Planning & Analysis Challenge",
+    description:
+      "A 3-week FP&A challenge from Corporate Finance Institute, working across three simulated business units. Built out each unit's Income Statement and Balance Sheet, consolidated them into a group view, produced a forecast using Excel's FORECAST.ETS, and finished with an executive dashboard comparing full-year outlook to budget with written variance commentary.",
+    categories: ["FP&A", "FINANCIAL MODELLING"],
+    skills: [
+      "Excel",
+      "FP&A",
+      "Group Consolidation",
+      "FORECAST.ETS",
+      "Variance Commentary",
+      "KPI Dashboarding",
+    ],
+    sheets: [
+      "Cover",
+      "Instructions",
+      "Business A",
+      "Business B",
+      "Business C",
+      "Group Consolidation",
+      "Week 2 Forecast",
+      "Week 3 Dashboard",
+    ],
+    status: "credential",
+    statusNote: "Completed — workbook not publicly distributed (CFI course material)",
+  },
+  {
+    id: "three-statement-model",
+    number: "03",
+    name: "Three-Statement Linked Financial Model",
+    subtitle: "Financial Modelling",
+    description:
+      "A linked financial model demonstrating the relationship between the Income Statement, Balance Sheet and Cash Flow Statement.",
+    categories: ["FINANCIAL MODELLING"],
+    skills: ["Excel", "Financial Modelling", "Forecasting"],
+    sheets: [],
+    status: "coming-soon",
+    statusNote: "Coming Soon",
+  },
+];
+
+export const modelFilters: ("ALL" | ModelCategory)[] = [
+  "ALL",
+  "FP&A",
+  "FINANCIAL MODELLING",
+  "BUDGETING",
+  "FINANCIAL ANALYSIS",
+  "INVESTMENT ANALYSIS",
 ];
 
 export type EducationEntry = {
@@ -255,8 +399,9 @@ export const navLinks = [
   { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
   { href: "#experience", label: "Experience" },
-  { href: "#expertise", label: "Expertise" },
+  { href: "#models", label: "Models" },
   { href: "#projects", label: "Projects" },
+  { href: "#skills", label: "Skills" },
   { href: "#education", label: "Education" },
   { href: "#contact", label: "Contact" },
 ];

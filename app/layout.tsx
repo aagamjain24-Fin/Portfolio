@@ -1,19 +1,11 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter, IBM_Plex_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
-const fraunces = Fraunces({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-fraunces",
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
-  display: "swap",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  weight: ["400", "500", "600"],
+  variable: "--font-jakarta",
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -30,7 +22,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Aagam Jain | Finance | FP&A | Financial Analysis",
   description:
-    "Aagam Jain — Finance professional specializing in FP&A, budgeting, forecasting, financial modelling, and variance analysis. Portfolio of budgeting, MIS reporting, and financial analysis work.",
+    "Aagam Jain — Finance professional specializing in FP&A, budgeting, forecasting, financial modelling, and variance analysis. Explore real Excel-based financial models, MIS dashboards, and FP&A work samples.",
   keywords: [
     "Aagam Jain",
     "FP&A",
@@ -64,8 +56,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${inter.variable} ${plexMono.variable}`}>
-      <body className="font-sans bg-void text-ink antialiased">{children}</body>
+    <html lang="en" className={`${jakarta.variable} ${plexMono.variable}`}>
+      <body className="font-sans bg-base text-ink antialiased">{children}</body>
     </html>
   );
 }

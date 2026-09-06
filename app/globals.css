@@ -21,27 +21,27 @@ html {
 }
 
 body {
-  background-color: #07080b;
-  color: #f5f3ee;
+  background-color: #ffffff;
+  color: #16222e;
 }
 
 ::selection {
-  background: rgba(201, 166, 107, 0.28);
-  color: #f5f3ee;
+  background: rgba(14, 124, 134, 0.16);
+  color: #16222e;
 }
 
 :focus-visible {
-  outline: 2px solid #c9a66b;
+  outline: 2px solid #0e7c86;
   outline-offset: 3px;
   border-radius: 2px;
 }
 
-/* Fine ledger-grid backdrop, kept faint so it never fights content */
+/* Faint spreadsheet-style grid, used only behind the hero */
 .bg-ledger-grid {
   background-image:
-    linear-gradient(rgba(245, 243, 238, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(245, 243, 238, 0.04) 1px, transparent 1px);
-  background-size: 42px 42px;
+    linear-gradient(rgba(22, 34, 46, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(22, 34, 46, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
 .text-balance {
@@ -52,25 +52,24 @@ body {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(245, 243, 238, 0.14) 20%,
-    rgba(245, 243, 238, 0.14) 80%,
+    rgba(22, 34, 46, 0.1) 20%,
+    rgba(22, 34, 46, 0.1) 80%,
     transparent
   );
   height: 1px;
 }
 
-/* Custom scrollbar, tuned to the palette instead of the browser default */
 ::-webkit-scrollbar {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #07080b;
+  background: #ffffff;
 }
 ::-webkit-scrollbar-thumb {
-  background: #23262f;
+  background: #d3d9df;
   border-radius: 999px;
-  border: 2px solid #07080b;
+  border: 2px solid #ffffff;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #2f333e;
+  background: #b9c1c9;
 }

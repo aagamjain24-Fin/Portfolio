@@ -27,14 +27,14 @@ export function Navbar() {
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-void/85 backdrop-blur-md border-b border-edge"
+          ? "bg-base/90 backdrop-blur-md border-b border-edge shadow-sm"
           : "bg-transparent border-b border-transparent"
       }`}
     >
       <nav className="mx-auto max-w-content px-6 flex h-16 items-center justify-between">
         <a
           href="#home"
-          className="font-display text-sm tracking-[0.08em] text-ink hover:text-brass transition-colors"
+          className="font-display font-semibold text-sm tracking-[0.04em] text-ink hover:text-accent transition-colors"
         >
           AAGAM JAIN
         </a>
@@ -53,10 +53,10 @@ export function Navbar() {
           <a
             href={profile.resumePath}
             download
-            className="group inline-flex items-center gap-2 rounded-full border border-brass-dim/60 px-4 py-2 text-sm text-ink hover:border-brass hover:bg-brass-soft transition-colors"
+            className="group inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-accent-dark"
           >
             Download Resume
-            <ArrowDownToLine className="h-3.5 w-3.5 text-brass transition-transform group-hover:-translate-y-0.5" />
+            <ArrowDownToLine className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5" />
           </a>
         </div>
 
@@ -77,7 +77,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="md:hidden overflow-hidden bg-void/95 backdrop-blur-md border-b border-edge"
+            className="md:hidden overflow-hidden bg-base/98 backdrop-blur-md border-b border-edge"
           >
             <ul className="flex flex-col px-6 py-4 gap-1">
               {navLinks.map((link) => (
@@ -85,7 +85,7 @@ export function Navbar() {
                   <a
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="block py-3 text-base text-ink border-b border-edge/60 last:border-none"
+                    className="block py-3 text-base text-ink border-b border-edge last:border-none"
                   >
                     {link.label}
                   </a>
@@ -97,10 +97,10 @@ export function Navbar() {
                 href={profile.resumePath}
                 download
                 onClick={() => setOpen(false)}
-                className="flex items-center justify-center gap-2 rounded-full border border-brass-dim/60 px-4 py-3 text-sm text-ink"
+                className="flex items-center justify-center gap-2 rounded-full bg-accent px-4 py-3 text-sm font-medium text-white"
               >
                 Download Resume
-                <ArrowDownToLine className="h-3.5 w-3.5 text-brass" />
+                <ArrowDownToLine className="h-3.5 w-3.5" />
               </a>
             </div>
           </motion.div>

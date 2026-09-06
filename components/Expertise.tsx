@@ -12,10 +12,10 @@ const icons = {
 
 export function Expertise() {
   return (
-    <section id="expertise" className="relative py-28 sm:py-32 bg-surface/40">
+    <section id="skills" className="relative py-24 sm:py-28">
       <div className="mx-auto max-w-content px-6">
         <SectionHeading
-          label="Expertise"
+          label="Skills"
           title="Finance Expertise"
           description="Four areas where day-to-day FP&A work translates directly into value for a finance team."
         />
@@ -25,15 +25,15 @@ export function Expertise() {
             const Icon = icons[card.id as keyof typeof icons];
             return (
               <Reveal key={card.id} delay={0.06 * i}>
-                <div className="group h-full rounded-2xl border border-edge bg-surface p-8 transition-all duration-300 hover:border-brass-dim hover:-translate-y-1">
-                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brass-soft text-brass">
+                <div className="group h-full rounded-2xl border border-edge bg-white p-8 shadow-card transition-all duration-300 hover:border-accent/30 hover:shadow-card-hover hover:-translate-y-1">
+                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-accent-soft text-accent">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-6 font-display text-xl text-ink">{card.title}</h3>
+                  <h3 className="mt-6 font-display font-semibold text-xl text-ink">{card.title}</h3>
                   <ul className="mt-5 space-y-2.5">
                     {card.items.map((it) => (
                       <li key={it} className="flex gap-3 text-sm text-muted">
-                        <span className="mt-1.5 h-1 w-1 flex-none rounded-full bg-brass-dim" />
+                        <span className="mt-1.5 h-1 w-1 flex-none rounded-full bg-accent/60" />
                         {it}
                       </li>
                     ))}

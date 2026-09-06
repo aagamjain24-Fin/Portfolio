@@ -1,38 +1,64 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { TrendingUp } from "lucide-react";
+
+function FloatingCard({
+  className,
+  delay,
+  children,
+}: {
+  className: string;
+  delay: number;
+  children: React.ReactNode;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: [0, -8, 0] }}
+      transition={{
+        opacity: { duration: 0.8, delay },
+        y: { duration: 6, delay: delay + 0.8, repeat: Infinity, ease: "easeInOut" },
+      }}
+      className={`absolute hidden lg:flex items-center gap-3 rounded-2xl border border-edge bg-white/90 backdrop-blur-sm px-4 py-3 shadow-card ${className}`}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 export function HeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-      <div className="absolute inset-0 bg-ledger-grid opacity-70 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_20%,black,transparent)]" />
-      <div className="absolute inset-0 bg-radial-glow" />
+      <div className="absolute inset-0 bg-ledger-grid opacity-60 [mask-image:radial-gradient(ellipse_60%_55%_at_50%_25%,black,transparent)]" />
+      <div className="absolute left-1/2 top-0 -translate-x-1/2 h-[480px] w-[900px] rounded-full bg-accent-soft blur-3xl" />
 
-      <svg
-        className="absolute left-1/2 top-[18%] w-[140%] max-w-none -translate-x-1/2 opacity-[0.16] animate-drift-line"
-        viewBox="0 0 1200 300"
-        fill="none"
-      >
-        <path
-          d="M0 210 C 100 180, 160 230, 240 190 S 380 120, 460 150 S 600 230, 690 170 S 840 60, 940 110 S 1100 200, 1200 140"
-          stroke="#C9A66B"
-          strokeWidth="1.5"
-        />
-        <path
-          d="M0 250 C 120 240, 200 260, 300 235 S 460 190, 560 210 S 720 260, 820 220 S 980 150, 1080 180 S 1160 210, 1200 195"
-          stroke="#F5F3EE"
-          strokeOpacity="0.35"
-          strokeWidth="1"
-        />
-      </svg>
+      <FloatingCard className="left-[6%] top-[26%]" delay={0.3}>
+        <span className="font-mono text-[11px] text-muted-2">Budget vs Actual</span>
+        <span className="font-mono text-sm font-medium text-accent">on track</span>
+      </FloatingCard>
 
-      <div className="hidden sm:block absolute left-[8%] top-[30%] font-mono text-[11px] text-brass/40 animate-ticker-fade">
-        FY26 BUDGET
-      </div>
-      <div className="hidden sm:block absolute right-[10%] top-[42%] font-mono text-[11px] text-muted/40 animate-ticker-fade [animation-delay:1.2s]">
-        VAR &plusmn; 0.0%
-      </div>
-      <div className="hidden sm:block absolute left-[14%] bottom-[22%] font-mono text-[11px] text-muted/30 animate-ticker-fade [animation-delay:2s]">
-        MIS · Q1&ndash;Q4
-      </div>
+      <FloatingCard className="right-[7%] top-[20%]" delay={0.5}>
+        <TrendingUp className="h-4 w-4 text-accent" />
+        <span className="font-mono text-[11px] text-muted-2">Variance analysis</span>
+      </FloatingCard>
 
-      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-void to-transparent" />
+      <FloatingCard className="left-[10%] bottom-[16%]" delay={0.7}>
+        <div className="flex items-end gap-1 h-6">
+          {[40, 65, 50, 80, 60].map((h, i) => (
+            <span
+              key={i}
+              style={{ height: `${h}%` }}
+              className="w-1.5 rounded-sm bg-accent/60"
+            />
+          ))}
+        </div>
+        <span className="font-mono text-[11px] text-muted-2">MIS dashboard</span>
+      </FloatingCard>
+
+      <FloatingCard className="right-[9%] bottom-[22%]" delay={0.9}>
+        <span className="font-mono text-[11px] text-muted-2">FY26 Forecast</span>
+      </FloatingCard>
     </div>
   );
 }

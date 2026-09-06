@@ -9,45 +9,43 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        void: "#07080B",
-        surface: "#0E1015",
-        "surface-2": "#151821",
-        edge: "rgba(245, 243, 238, 0.08)",
-        "edge-strong": "rgba(245, 243, 238, 0.14)",
-        ink: "#F5F3EE",
-        muted: "#9C9A93",
-        "muted-2": "#6E6C67",
-        brass: "#C9A66B",
-        "brass-dim": "#8A7248",
-        "brass-soft": "rgba(201, 166, 107, 0.12)",
+        base: "#FFFFFF",
+        "base-alt": "#F6F8FA",
+        surface: "#FFFFFF",
+        edge: "#E4E8EC",
+        "edge-strong": "#D3D9DF",
+        ink: "#16222E",
+        muted: "#5B6672",
+        "muted-2": "#8A94A0",
+        accent: "#0E7C86",
+        "accent-dark": "#0B5F67",
+        "accent-soft": "rgba(14, 124, 134, 0.08)",
+        "accent-soft-strong": "rgba(14, 124, 134, 0.14)",
       },
       fontFamily: {
-        display: ["var(--font-fraunces)", "Georgia", "serif"],
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        display: ["var(--font-jakarta)", "system-ui", "sans-serif"],
+        sans: ["var(--font-jakarta)", "system-ui", "sans-serif"],
         mono: ["var(--font-mono)", "ui-monospace", "monospace"],
       },
       maxWidth: {
         content: "1180px",
       },
+      boxShadow: {
+        card: "0 1px 2px rgba(22,34,46,0.04), 0 8px 24px -12px rgba(22,34,46,0.08)",
+        "card-hover": "0 4px 10px rgba(22,34,46,0.06), 0 16px 32px -12px rgba(14,124,134,0.16)",
+      },
       backgroundImage: {
-        "radial-glow":
-          "radial-gradient(circle at 50% 0%, rgba(201,166,107,0.14), transparent 60%)",
         "grid-fine":
-          "linear-gradient(rgba(245,243,238,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(245,243,238,0.035) 1px, transparent 1px)",
+          "linear-gradient(rgba(22,34,46,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(22,34,46,0.035) 1px, transparent 1px)",
       },
       keyframes: {
-        "drift-line": {
-          "0%": { transform: "translateX(-8%)" },
-          "100%": { transform: "translateX(8%)" },
-        },
-        "ticker-fade": {
-          "0%, 100%": { opacity: "0.35" },
-          "50%": { opacity: "0.8" },
+        "count-bar": {
+          "0%": { transform: "scaleY(0.3)" },
+          "100%": { transform: "scaleY(1)" },
         },
       },
       animation: {
-        "drift-line": "drift-line 18s ease-in-out infinite alternate",
-        "ticker-fade": "ticker-fade 4s ease-in-out infinite",
+        "count-bar": "count-bar 1s cubic-bezier(0.22,1,0.36,1) forwards",
       },
     },
   },
