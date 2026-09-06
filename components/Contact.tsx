@@ -12,7 +12,7 @@ const channels = [
     value: "linkedin.com/in/aagam-jain2408",
     href: profile.linkedin,
   },
-  { icon: Github, label: "GitHub", value: "github.com/aagamjain24", href: profile.github },
+  { icon: Github, label: "GitHub", value: "github.com/aagamjain24-Fin", href: profile.github },
 ];
 
 export function Contact() {

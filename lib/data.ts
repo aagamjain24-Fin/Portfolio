@@ -7,7 +7,7 @@ export const profile = {
   phone: "+91-8931891616",
   phoneHref: "tel:+918931891616",
   linkedin: "https://linkedin.com/in/aagam-jain2408",
-  github: "https://github.com/aagamjain24",
+  github: "https://github.com/aagamjain24-Fin",
   resumePath: "/Aagam_Jain_Resume.pdf",
   summary:
     "Finance professional with 11 months of experience in FP&A, budgeting, forecasting, financial modeling, variance analysis, and management reporting within a manufacturing environment. Experienced in preparing annual budgets, analyzing Budget vs. Actual performance, identifying cost drivers, and developing Excel-based financial models and MIS dashboards. Strong analytical and problem-solving skills with the ability to translate financial data into actionable business insights.",
