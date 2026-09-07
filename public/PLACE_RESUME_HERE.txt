@@ -1,9 +1,0 @@
-Add your resume PDF here as:
-
-  Aagam_Jain_Resume.pdf
-
-The "Download Resume" buttons in the navbar and hero already link to
-/Aagam_Jain_Resume.pdf — once you drop the real file into this folder
-(public/) with that exact name, the buttons will work immediately.
-This placeholder file is not linked anywhere and can be deleted once
-the real PDF is in place.
