@@ -494,8 +494,9 @@ export const financialModels: FinancialModel[] = [
           "Built an executive KPI dashboard summarizing FY revenue and net income outlook vs budget, net income margin, and YTD variance, plus a unit-by-unit performance table with a Favorable/Unfavorable status flag and written executive takeaways on the key drivers and risks in the forecast.",
       },
     ],
-    status: "credential",
-    statusNote: "Completed — workbook not publicly distributed (CFI course material)",
+    status: "available",
+    statusNote: "Available",
+    filePath: "/models/CFI_FPA_Challenge_AagamJain.xlsx",
   },
   {
     id: "three-statement-model",
