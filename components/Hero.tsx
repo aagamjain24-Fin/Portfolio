@@ -57,7 +57,15 @@ export function Hero() {
           className="mt-6 max-w-xl text-base sm:text-lg text-muted-2 leading-relaxed"
         >
           Turning financial data into actionable business insights through
-          FP&amp;A, financial modelling, budgeting and analytics.
+          FP&amp;A, financial modelling, valuation, budgeting and analytics.
+        </motion.p>
+
+        <motion.p
+          variants={item}
+          className="mt-3 max-w-lg text-sm text-muted-2/80 leading-relaxed"
+        >
+          I take financial numbers and business data and turn them into
+          analysis that supports better decision-making.
         </motion.p>
 
         <motion.div variants={item} className="mt-10 flex flex-wrap items-center justify-center gap-4">
@@ -67,6 +75,14 @@ export function Hero() {
           >
             View My Work
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+          </a>
+          <a
+            href={profile.resumePath}
+            target="_blank"
+            rel="noreferrer"
+            className="group inline-flex items-center gap-2 rounded-full border border-edge-strong px-6 py-3 text-sm font-medium text-ink transition-colors hover:border-accent hover:bg-accent-soft"
+          >
+            View Resume
           </a>
           <a
             href={profile.resumePath}

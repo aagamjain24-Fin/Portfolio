@@ -43,18 +43,22 @@ function BudgetActualChart({ data }: { data: { month: string; budget: number; ac
   );
 }
 
-function SheetOutline({ sheets }: { sheets: string[] }) {
+// A clean weekly-progression visual for a structured multi-week project,
+// used instead of a raw list of sheet names.
+function WeekProgress({ weeks }: { weeks: { label: string }[] }) {
   return (
-    <div className="flex h-full w-full flex-col justify-center gap-1.5 px-5 py-4">
-      {sheets.slice(0, 5).map((s) => (
-        <div key={s} className="flex items-center gap-2">
-          <Layers className="h-3 w-3 flex-none text-accent/70" />
-          <span className="truncate text-[11px] font-mono text-muted-2">{s}</span>
+    <div className="flex h-full w-full items-center justify-center gap-3 px-6">
+      {weeks.map((w, i) => (
+        <div key={w.label} className="flex items-center gap-3">
+          <div className="flex flex-col items-center gap-1.5">
+            <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-accent/40 bg-white text-xs font-mono font-semibold text-accent">
+              {i + 1}
+            </div>
+            <span className="text-[10px] font-mono text-muted-2">{w.label}</span>
+          </div>
+          {i < weeks.length - 1 && <div className="h-px w-6 bg-edge-strong" />}
         </div>
       ))}
-      {sheets.length > 5 && (
-        <span className="pl-5 text-[11px] font-mono text-muted-2">+{sheets.length - 5} more</span>
-      )}
     </div>
   );
 }
@@ -76,8 +80,8 @@ function ModelVisual({ model }: { model: FinancialModel }) {
     <div className="flex h-full w-full items-center bg-base-alt">
       {model.status === "available" && model.chart ? (
         <BudgetActualChart data={model.chart} />
-      ) : model.status === "credential" ? (
-        <SheetOutline sheets={model.sheets} />
+      ) : model.weeks ? (
+        <WeekProgress weeks={model.weeks} />
       ) : (
         <ComingSoonVisual />
       )}
@@ -227,9 +231,23 @@ export function Models() {
                   </div>
                 )}
 
+                {active.weeks && (
+                  <div className="mt-6 space-y-4">
+                    {active.weeks.map((w) => (
+                      <div key={w.label} className="rounded-xl border border-edge bg-base-alt p-4">
+                        <p className="text-xs font-mono font-semibold text-accent uppercase tracking-wide">
+                          {w.label}
+                        </p>
+                        <p className="mt-1.5 text-sm text-muted leading-relaxed">{w.summary}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
                 {active.sheets.length > 0 && (
                   <>
-                    <p className="mt-6 text-xs font-mono text-muted-2 uppercase tracking-wide">
+                    <p className="mt-6 flex items-center gap-1.5 text-xs font-mono text-muted-2 uppercase tracking-wide">
+                      <Layers className="h-3 w-3" />
                       Workbook sheets
                     </p>
                     <div className="mt-3 flex flex-wrap gap-2">

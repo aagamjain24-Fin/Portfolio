@@ -50,7 +50,15 @@ export function Contact() {
           ))}
         </div>
 
-        <Reveal delay={0.2} className="mt-12 flex justify-center">
+        <Reveal delay={0.2} className="mt-12 flex flex-wrap justify-center gap-3">
+          <a
+            href={profile.resumePath}
+            target="_blank"
+            rel="noreferrer"
+            className="group inline-flex items-center gap-2 rounded-full border border-edge-strong px-6 py-3 text-sm font-medium text-ink transition-colors hover:border-accent hover:bg-accent-soft"
+          >
+            View Resume
+          </a>
           <a
             href={profile.resumePath}
             download
