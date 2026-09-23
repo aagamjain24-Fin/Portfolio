@@ -63,6 +63,48 @@ function WeekProgress({ weeks }: { weeks: { label: string }[] }) {
   );
 }
 
+// A historical + forecast trend line, built from the workbook's own Sales
+// series — solid for actuals, dashed for the forecast years.
+function TrendChart({ data }: { data: { label: string; value: number; forecast?: boolean }[] }) {
+  const max = Math.max(...data.map((d) => d.value));
+  const min = Math.min(...data.map((d) => d.value));
+  const w = 200;
+  const h = 64;
+  const step = w / (data.length - 1);
+  const points = data.map((d, i) => {
+    const x = i * step;
+    const y = h - ((d.value - min) / (max - min || 1)) * (h - 8) - 4;
+    return { x, y, forecast: d.forecast };
+  });
+  const splitIndex = data.findIndex((d) => d.forecast);
+  const toPath = (pts: typeof points) => pts.map((p) => `${p.x},${p.y}`).join(" ");
+  const historical = splitIndex === -1 ? points : points.slice(0, splitIndex + 1);
+  const forecast = splitIndex === -1 ? [] : points.slice(splitIndex);
+
+  return (
+    <div className="h-full w-full px-4 py-3">
+      <svg viewBox={`0 0 ${w} ${h}`} className="h-full w-full" preserveAspectRatio="none">
+        <polyline points={toPath(historical)} fill="none" stroke="#0E7C86" strokeWidth="1.75" />
+        {forecast.length > 0 && (
+          <polyline
+            points={toPath(forecast)}
+            fill="none"
+            stroke="#0E7C86"
+            strokeWidth="1.75"
+            strokeDasharray="3,3"
+            opacity="0.6"
+          />
+        )}
+      </svg>
+      <div className="mt-1 flex justify-between text-[8px] font-mono text-muted-2">
+        <span>{data[0].label}</span>
+        <span>Forecast →</span>
+        <span>{data[data.length - 1].label}</span>
+      </div>
+    </div>
+  );
+}
+
 function ComingSoonVisual() {
   return (
     <div className="flex h-full w-full items-center justify-center bg-base-alt">
@@ -80,6 +122,8 @@ function ModelVisual({ model }: { model: FinancialModel }) {
     <div className="flex h-full w-full items-center bg-base-alt">
       {model.status === "available" && model.chart ? (
         <BudgetActualChart data={model.chart} />
+      ) : model.status === "available" && model.trend ? (
+        <TrendChart data={model.trend} />
       ) : model.weeks ? (
         <WeekProgress weeks={model.weeks} />
       ) : (

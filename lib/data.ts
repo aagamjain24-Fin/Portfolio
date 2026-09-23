@@ -396,6 +396,8 @@ export type ModelMetric = { label: string; value: string };
 
 export type ModelWeek = { label: string; summary: string };
 
+export type TrendPoint = { label: string; value: number; forecast?: boolean };
+
 export type FinancialModel = {
   id: string;
   number: string;
@@ -411,6 +413,7 @@ export type FinancialModel = {
   filePath?: string;
   metrics?: ModelMetric[];
   chart?: { month: string; budget: number; actual: number }[];
+  trend?: TrendPoint[];
 };
 
 // Monthly Budget vs Actual figures (₹ Lacs), taken directly from the
@@ -501,15 +504,45 @@ export const financialModels: FinancialModel[] = [
   {
     id: "three-statement-model",
     number: "03",
-    name: "Three-Statement Linked Financial Model",
-    subtitle: "Financial Modelling",
+    name: "Three-Statement Financial Model — TATA Steel Ltd",
+    subtitle: "Financial Modelling | Ratio Analysis | Forecasting",
     description:
-      "A linked financial model demonstrating the relationship between the Income Statement, Balance Sheet and Cash Flow Statement.",
-    categories: ["FINANCIAL MODELLING"],
-    skills: ["Excel", "Financial Modelling", "Forecasting"],
-    sheets: [],
-    status: "coming-soon",
-    statusNote: "Coming Soon",
+      "A three-statement financial model for TATA Steel Ltd — Income Statement, Balance Sheet and Cash Flow Statement — built from 10 years of historical data (FY2017–FY2026) sourced from Screener.in, a 30+ line ratio-analysis suite covering growth, margins, returns, turnover and liquidity, and a 5-year forward forecast (FY2027–FY2031) of Sales, EBITDA and EPS using Excel's FORECAST function on the historical trend.",
+    categories: ["FINANCIAL MODELLING", "FINANCIAL ANALYSIS", "INVESTMENT ANALYSIS"],
+    skills: [
+      "Three-Statement Modelling",
+      "Ratio Analysis",
+      "Forecasting (Excel FORECAST)",
+      "Financial Statement Analysis",
+      "Excel",
+    ],
+    sheets: ["HistoricalFS", "Ratio Analysis", "Forecasting", "Data Sheet", "Cash Flow Data"],
+    status: "available",
+    statusNote: "Available",
+    filePath: "/models/TATA_Steel_Financial_Model.xlsx",
+    metrics: [
+      { label: "Historical period", value: "FY17–FY26" },
+      { label: "Forecast horizon", value: "FY27–FY31" },
+      { label: "Ratios tracked", value: "30+" },
+      { label: "Data source", value: "Screener.in" },
+    ],
+    trend: [
+      { label: "FY17", value: 112299 },
+      { label: "FY18", value: 123249 },
+      { label: "FY19", value: 157669 },
+      { label: "FY20", value: 139817 },
+      { label: "FY21", value: 156477 },
+      { label: "FY22", value: 243959 },
+      { label: "FY23", value: 243353 },
+      { label: "FY24", value: 229171 },
+      { label: "FY25", value: 218543 },
+      { label: "FY26", value: 232140 },
+      { label: "FY27", value: 269042, forecast: true },
+      { label: "FY28", value: 284200, forecast: true },
+      { label: "FY29", value: 299359, forecast: true },
+      { label: "FY30", value: 314518, forecast: true },
+      { label: "FY31", value: 329677, forecast: true },
+    ],
   },
 ];
 
