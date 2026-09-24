@@ -55,8 +55,8 @@ export const experience: ExperienceEntry[] = [
     period: "December 2025 – May 2026",
     location: "Jaipur, India",
     bullets: [
-      "Prepared the FY2026 annual budget and financial forecasts across sales, production, marketing, finance, and administrative functions, supporting business planning and FP&A activities.",
-      "Performed monthly Budget vs. Actual variance analysis, investigated key cost drivers and financial performance deviations, and provided insights to support management decision-making.",
+      "Prepared and monitored the FY2026 sales budget of ₹36.04 Cr, supporting annual financial planning, forecasting and FP&A activities.",
+      "Performed monthly Budget vs. Actual analysis, tracking ₹10.02 Cr in verified YTD sales through May, with 71% budget achievement, and investigated key performance variances to support management decision-making.",
       "Developed and maintained Excel-based financial models, MIS dashboards, financial reports, and performance trackers for budgeting, forecasting, variance analysis, and management reporting.",
       "Analyzed direct and indirect expenses, performed product costing, and evaluated key cost drivers to support expense control and financial efficiency.",
       "Supported account reconciliations, invoice verification, and month-end reporting, ensuring accurate financial records and timely management reporting.",
