@@ -20,25 +20,37 @@ function StatusBadge({ model }: { model: FinancialModel }) {
 
 // Small, real bar chart built from the workbook's own monthly Budget vs
 // Actual figures — not a screenshot, so it stays crisp and responsive.
-function BudgetActualChart({ data }: { data: { month: string; budget: number; actual: number }[] }) {
+// Months after `verifiedThrough` are rendered muted, since those Actual
+// figures were completed later for modelling practice, not company-reported.
+function BudgetActualChart({
+  data,
+  verifiedThrough,
+}: {
+  data: { month: string; budget: number; actual: number }[];
+  verifiedThrough?: string;
+}) {
   const max = Math.max(...data.map((d) => Math.max(d.budget, d.actual)));
+  const cutoffIndex = verifiedThrough ? data.findIndex((d) => d.month === verifiedThrough) : -1;
   return (
     <div className="flex h-full w-full items-end gap-[3px] px-4 pb-3 pt-4">
-      {data.map((d) => (
-        <div key={d.month} className="flex flex-1 flex-col items-center justify-end gap-[2px]">
-          <div className="flex items-end gap-[2px] h-16 w-full justify-center">
-            <div
-              className="w-1.5 rounded-t-sm bg-edge-strong"
-              style={{ height: `${(d.budget / max) * 100}%` }}
-            />
-            <div
-              className="w-1.5 rounded-t-sm bg-accent"
-              style={{ height: `${(d.actual / max) * 100}%` }}
-            />
+      {data.map((d, i) => {
+        const verified = cutoffIndex === -1 || i <= cutoffIndex;
+        return (
+          <div key={d.month} className="flex flex-1 flex-col items-center justify-end gap-[2px]">
+            <div className="flex items-end gap-[2px] h-16 w-full justify-center">
+              <div
+                className="w-1.5 rounded-t-sm bg-edge-strong"
+                style={{ height: `${(d.budget / max) * 100}%` }}
+              />
+              <div
+                className={`w-1.5 rounded-t-sm ${verified ? "bg-accent" : "bg-accent/30"}`}
+                style={{ height: `${(d.actual / max) * 100}%` }}
+              />
+            </div>
+            <span className="text-[8px] font-mono text-muted-2">{d.month[0]}</span>
           </div>
-          <span className="text-[8px] font-mono text-muted-2">{d.month[0]}</span>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }
@@ -121,7 +133,7 @@ function ModelVisual({ model }: { model: FinancialModel }) {
   return (
     <div className="flex h-full w-full items-center bg-base-alt">
       {model.status === "available" && model.chart ? (
-        <BudgetActualChart data={model.chart} />
+        <BudgetActualChart data={model.chart} verifiedThrough={model.chartVerifiedThrough} />
       ) : model.status === "available" && model.trend ? (
         <TrendChart data={model.trend} />
       ) : model.weeks ? (
@@ -273,6 +285,10 @@ export function Models() {
                       </div>
                     ))}
                   </div>
+                )}
+
+                {active.dataNote && (
+                  <p className="mt-3 text-xs text-muted-2 leading-relaxed italic">{active.dataNote}</p>
                 )}
 
                 {active.weeks && (

@@ -43,6 +43,8 @@ export type ExperienceEntry = {
   bullets: string[];
   tags: string[];
   relatedModels?: boolean;
+  snapshot?: ModelMetric[];
+  snapshotNote?: string;
 };
 
 export const experience: ExperienceEntry[] = [
@@ -72,6 +74,14 @@ export const experience: ExperienceEntry[] = [
       "Month-End Reporting",
     ],
     relatedModels: true,
+    snapshot: [
+      { label: "FY2026 sales budget (planned)", value: "₹3,604.3L" },
+      { label: "Actual sales, verified (YTD May)", value: "₹1,002.0L" },
+      { label: "Variance (YTD May)", value: "-₹409.4L" },
+      { label: "Achievement % (YTD May)", value: "71%" },
+    ],
+    snapshotNote:
+      "From my sales Budget vs Actual tracker, in ₹ Lacs. Actual/Variance/Achievement figures are scoped to January–May, the period I tracked live at Dwarka Gems.",
   },
   {
     id: "marquee-equity",
@@ -285,7 +295,8 @@ export const caseStudies: CaseStudy[] = [
     ],
     keyOutputs: [
       "Monthly Budget vs Actual variance reporting.",
-      "An executive dashboard and a YTM dashboard tracking cumulative achievement — the model's own FY YTM view shows 96% overall achievement against budget.",
+      "Through May — the verified, company-reported period — sales tracked at ₹1,002.0L actual against a ₹1,411.4L budget, a variance of -₹409.4L (71% achievement).",
+      "Extended the model through December afterward as a self-directed modelling exercise to build a full annual Budget vs Actual view for the portfolio; those later months are not company-reported actuals.",
     ],
     skills: ["Variance Analysis", "Cost Drivers", "Financial Analysis", "Management Reporting"],
     tools: ["Microsoft Excel (Pivot Tables, SUMIFS)"],
@@ -413,7 +424,9 @@ export type FinancialModel = {
   filePath?: string;
   metrics?: ModelMetric[];
   chart?: { month: string; budget: number; actual: number }[];
+  chartVerifiedThrough?: string;
   trend?: TrendPoint[];
+  dataNote?: string;
 };
 
 // Monthly Budget vs Actual figures (₹ Lacs), taken directly from the
@@ -440,7 +453,7 @@ export const financialModels: FinancialModel[] = [
     name: "Budget vs Actual Analysis Model",
     subtitle: "FP&A | Budgeting | Variance Analysis",
     description:
-      "An Excel-based Budget vs Actual model built across three business segments — Export, B2B and B2C — tracking monthly and year-to-date performance against budget, with categorywise variance, an executive dashboard, a YTM dashboard, and a written analysis of the results. Supports budget monitoring, variance tracking, and management decision-making.",
+      "An Excel-based Sales Budget vs Actual model built across three business segments — Export, B2B and B2C — with categorywise variance, an executive dashboard, a YTM dashboard, and a written analysis. Verified actuals run through May, the period I was tracking live at Dwarka Gems; the remaining months were completed afterward as a modelling exercise.",
     categories: ["FP&A", "BUDGETING", "FINANCIAL ANALYSIS"],
     skills: ["Excel", "Variance Analysis", "Budgeting", "Dashboard Design", "SUMIFS", "Pivot Tables"],
     sheets: [
@@ -456,12 +469,15 @@ export const financialModels: FinancialModel[] = [
     statusNote: "Available",
     filePath: "/models/Budget_vs_Actual_Model_AagamJain.xlsx",
     metrics: [
-      { label: "Annual achievement", value: "96%" },
-      { label: "Total budget (FY)", value: "₹3,604.3L" },
-      { label: "Total actual (FY)", value: "₹3,450.4L" },
-      { label: "Strongest segment", value: "B2C" },
+      { label: "FY2026 sales budget (planned)", value: "₹3,604.3L" },
+      { label: "Actual, verified (YTD May)", value: "₹1,002.0L" },
+      { label: "Variance (YTD May)", value: "-₹409.4L" },
+      { label: "Achievement % (YTD May)", value: "71%" },
     ],
+    dataNote:
+      "Budget figures cover the full planned FY2026 year. Actual/Variance/Achievement figures above are scoped to January–May, the verified, company-reported period. June–December actuals in the workbook were completed afterward for modelling practice and are not represented as company-reported results.",
     chart: budgetVsActualChart,
+    chartVerifiedThrough: "May",
   },
   {
     id: "cfi-fpa-challenge",

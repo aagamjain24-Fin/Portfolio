@@ -54,6 +54,27 @@ export function Experience() {
                       ))}
                     </div>
 
+                    {role.snapshot && (
+                      <div className="mt-6 rounded-xl border border-edge bg-base-alt p-5">
+                        <p className="text-xs font-mono text-muted-2 uppercase tracking-wide">
+                          Financial Snapshot
+                        </p>
+                        <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
+                          {role.snapshot.map((m) => (
+                            <div key={m.label} className="text-center">
+                              <p className="font-display font-semibold text-accent">{m.value}</p>
+                              <p className="mt-1 text-[11px] text-muted-2 leading-tight">{m.label}</p>
+                            </div>
+                          ))}
+                        </div>
+                        {role.snapshotNote && (
+                          <p className="mt-4 text-xs text-muted-2 leading-relaxed italic">
+                            {role.snapshotNote}
+                          </p>
+                        )}
+                      </div>
+                    )}
+
                     {role.relatedModels && (
                       <a
                         href="#models"
