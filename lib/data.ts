@@ -51,7 +51,7 @@ export const experience: ExperienceEntry[] = [
   {
     id: "dwarka-gems",
     company: "Dwarka Gems LTD",
-    role: "Finance Executive – FP&A / AR",
+    role: "Finance Executive – FP&A",
     period: "December 2025 – May 2026",
     location: "Jaipur, India",
     bullets: [
