@@ -10,11 +10,11 @@ export const profile = {
   github: "https://github.com/aagamjain24-Fin",
   resumePath: "/Aagam_Jain_Resume.pdf",
   summary:
-    "Finance professional with 11 months of experience in FP&A, budgeting, forecasting, financial modeling, variance analysis, and management reporting within a manufacturing environment. Experienced in preparing annual budgets, analyzing Budget vs. Actual performance, identifying cost drivers, and developing Excel-based financial models and MIS dashboards. Strong analytical and problem-solving skills with the ability to translate financial data into actionable business insights.",
+    "Finance professional with hands-on experience in FP&A, budgeting, forecasting, variance analysis, financial reporting, financial modelling and investment research. Skilled in analyzing financial performance, preparing management reports and supporting strategic decision-making. Experienced in cost analysis, financial reconciliations and fundraising research, with proficiency in Advanced Excel, Microsoft tools and financial reporting tools, and working knowledge of SAP basics, Tally ERP and AI-powered productivity and analytical tools.",
 };
 
 export const highlights = [
-  { value: "11 Months", label: "Experience" },
+  { value: "2 Roles", label: "FP&A & Investment Research" },
   { value: "FP&A", label: "Budgeting & Forecasting" },
   { value: "Financial Modelling", label: "Excel-based Models" },
   { value: "Variance Analysis", label: "Budget vs Actual" },
@@ -55,11 +55,11 @@ export const experience: ExperienceEntry[] = [
     period: "December 2025 – May 2026",
     location: "Jaipur, India",
     bullets: [
-      "Prepared and monitored the FY2026 sales budget of ₹36.04 Cr, supporting annual financial planning, forecasting and FP&A activities.",
-      "Performed monthly Budget vs. Actual analysis, tracking ₹10.02 Cr in verified YTD sales through May, with 71% budget achievement, and investigated key performance variances to support management decision-making.",
-      "Developed and maintained Excel-based financial models, MIS dashboards, financial reports, and performance trackers for budgeting, forecasting, variance analysis, and management reporting.",
-      "Analyzed direct and indirect expenses, performed product costing, and evaluated key cost drivers to support expense control and financial efficiency.",
-      "Supported account reconciliations, invoice verification, and month-end reporting, ensuring accurate financial records and timely management reporting.",
+      "Prepared and monitored the FY2026 sales budget of ₹36.04 Cr and supported budgeting across production, departmental expenses and operational costs, in support of financial planning, forecasting and FP&A.",
+      "Performed monthly Budget vs. Actual analysis across sales, expenses and departmental budgets, tracked YTD financial performance, identified key variances and provided actionable insights to support management decision-making.",
+      "Developed and maintained Excel-based financial models, MIS dashboards, monthly financial reports and performance trackers for budgeting, forecasting, sales and expense analysis, variance analysis and management reporting.",
+      "Analyzed direct and indirect expenses, performed product costing and quotation analysis, and evaluated key cost drivers to support cost control, pricing decisions and operational efficiency.",
+      "Supported bank and account reconciliations, invoice verification, ledger entries and month-end reporting, ensuring accurate financial records and timely financial reporting.",
     ],
     tags: [
       "FY2026 Budget",
@@ -70,7 +70,8 @@ export const experience: ExperienceEntry[] = [
       "Product Costing",
       "Excel Models",
       "MIS Reporting",
-      "Reconciliation",
+      "Quotation Analysis",
+      "Bank & Account Reconciliation",
       "Month-End Reporting",
     ],
     relatedModels: true,
@@ -90,10 +91,10 @@ export const experience: ExperienceEntry[] = [
     period: "August 2025 – December 2025",
     location: "Remote, India",
     bullets: [
-      "Performed financial and market analysis of global startups, evaluating business models, financial metrics, and growth potential to support fundraising and investment decisions.",
-      "Evaluated business models, financial metrics, and market positioning to assist in investor-company matchmaking.",
-      "Prepared well-structured research briefs and company summaries to support senior investment team decision-making.",
-      "Collaborated with cross-functional teams, demonstrating analytical, communication, and stakeholder coordination skills.",
+      "Conducted financial and market analysis of global startups and companies, evaluating business models, financial metrics, industry trends and growth potential to support investment research and fundraising activities.",
+      "Analyzed business fundamentals, financial performance, competitive positioning and market opportunities to support potential investor identification and investor-company matchmaking.",
+      "Prepared investment research briefs, company profiles and financial summaries, providing actionable insights to support senior investment team decision-making.",
+      "Collaborated with cross-functional teams and stakeholders to coordinate research activities, organize financial information and support fundraising and investment-related processes.",
     ],
     tags: [
       "Financial Analysis",
@@ -101,8 +102,10 @@ export const experience: ExperienceEntry[] = [
       "Investment Analysis",
       "Business Models",
       "Startup Research",
+      "Industry Trends",
+      "Competitive Positioning",
       "Investor Matching",
-      "Research Briefs",
+      "Research Briefs & Company Profiles",
       "Stakeholder Coordination",
     ],
   },
@@ -137,6 +140,7 @@ export const expertise: ExpertiseCard[] = [
       "DCF Valuation",
       "Valuation Fundamentals",
       "Investment Analysis",
+      "Market Research",
     ],
   },
   {
@@ -176,6 +180,7 @@ export const excelSkills = [
   "MIS Reporting",
   "Data Cleaning",
   "Formula-driven Analysis",
+  "Macros",
 ];
 
 export type ToolGroup = {
@@ -221,6 +226,11 @@ export const toolGroups: ToolGroup[] = [
     name: "Tableau",
     level: "Basic",
     skills: ["Basic Data Visualization", "Charts & Dashboards", "Data Exploration", "Basic Reporting"],
+  },
+  {
+    name: "SAP",
+    level: "Basic",
+    skills: ["Working knowledge of SAP basics"],
   },
   {
     name: "SQL",
@@ -353,14 +363,14 @@ export const caseStudies: CaseStudy[] = [
     objective:
       "Support Marquee Equity's investor-company matchmaking process through startup financial and market research.",
     myWork: [
-      "Supported financial and market analysis of global startups, evaluating business models, financial metrics, and growth potential to inform fundraising and investment discussions.",
-      "Evaluated business models, financial metrics, and market positioning to assist in investor-company matchmaking.",
-      "Prepared research briefs and company summaries for the senior investment team.",
-      "Collaborated with cross-functional teams throughout the process.",
+      "Supported financial and market analysis of global startups and companies, evaluating business models, financial metrics, industry trends and growth potential to inform investment research and fundraising activities.",
+      "Analyzed business fundamentals, financial performance, competitive positioning and market opportunities to support potential investor identification and investor-company matchmaking.",
+      "Prepared investment research briefs, company profiles and financial summaries for the senior investment team.",
+      "Collaborated with cross-functional teams and stakeholders to coordinate research activities and organize financial information.",
     ],
     analysisPerformed: [
       "Assessed startup financial metrics and growth potential.",
-      "Evaluated business model and market positioning.",
+      "Evaluated business model, competitive positioning and market opportunities.",
       "Synthesized findings into structured research briefs.",
     ],
     keyOutputs: ["Company research briefs and summaries supporting investor-company matchmaking."],
@@ -604,7 +614,7 @@ export type Certification = {
 };
 
 export const certifications: Certification[] = [
-  { id: "cfa", name: "CFA Level 1", issuer: "CFA Institute", status: "Currently Preparing" },
+  { id: "cfa", name: "CFA Level 1", issuer: "CFA Institute", status: "Candidate — May 2027" },
   { id: "deloitte", name: "Data Analytics Job Simulation", issuer: "Deloitte Australia · Forage" },
   { id: "ey", name: "Audit Job Simulation", issuer: "EY · Forage" },
   { id: "fin-modeling", name: "Financial Modeling", issuer: "" },

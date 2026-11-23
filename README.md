@@ -48,5 +48,5 @@ Push to GitHub, import at [vercel.com/new](https://vercel.com/new) (Next.js auto
 ## Notes
 
 - No contact form wired to a backend — direct email/phone/LinkedIn/GitHub links only.
-- CFA Level 1 is explicitly labeled "Currently Preparing."
+- CFA Level 1 is shown as "Candidate — May 2027" (matches the latest CV); never as completed.
 - Motion respects `prefers-reduced-motion`.
